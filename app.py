@@ -48,10 +48,6 @@ city_map = {
 }
 
 
-
-
-
-
 # BFS implementation
 def bfs(graph, start, goal):
     queue = [(start, [start])]
@@ -87,36 +83,8 @@ def generate_city_graph():
     return G
 
 # Route to render the index page
-# @app.route('/')
-# def index():
-#     G = generate_city_graph()
-
-#     # Draw the graph
-#     pos = nx.spring_layout(G)
-#     nx.draw(G, pos, with_labels=True, font_weight='bold', node_size=700, node_color='skyblue', font_size=8, font_color='black', edge_color='gray')
-#     plt.savefig('static/city_graph.png')  # Save the graph as a static image
-#     plt.clf()  # Clear the plot
-
-#     return render_template('index.html')
-
-
 @app.route('/')
 def index():
-    # G = generate_city_graph()
-
-    # # Draw the graph
-    # plt.figure(figsize=(12, 8))  # Set the figure size to avoid overlap
-    # pos = nx.spring_layout(G, weight='weight', k=1/5)  # Adjust the spring layout to spread out nodes more, based on edge weight
-    # nx.draw_networkx_nodes(G, pos, node_size=700, node_color='skyblue')
-    # nx.draw_networkx_edges(G, pos, width=1.0, edge_color='gray')
-    # nx.draw_networkx_labels(G, pos, font_size=10, font_color='black')
-    # edge_labels = {(u, v): d['weight'] for u, v, d in G.edges(data=True)}
-    # nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=8)
-
-    # plt.title("City Graph")
-    # plt.savefig('static/city_graph.png')  # Save the graph as a static image
-    # plt.clf()  # Clear the plot
-
     return render_template('index.html')
 
 # Route to handle the form submission and perform selected algorithm search
