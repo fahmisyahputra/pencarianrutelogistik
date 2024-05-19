@@ -7,14 +7,38 @@ import matplotlib.pyplot as plt
 app = Flask(__name__)
 
 # Data city_map
+# city_map = {
+#     'SURABAYA': {'SIDOARJO': 5, 'GRESIK': 9, 'MOJOKERTO': 4},
+#     'SIDOARJO': {'SURABAYA': 5, 'GRESIK': 3, 'JOMBANG': 7},
+#     'GRESIK': {'SURABAYA': 9, 'SIDOARJO': 3, 'MOJOKERTO': 2, 'JOMBANG': 6, 'MALANG': 3},
+#     'MOJOKERTO': {'SURABAYA': 4, 'GRESIK': 2, 'MALANG': 8},
+#     'JOMBANG': {'SIDOARJO': 7, 'GRESIK': 6, 'MALANG': 5},
+#     'MALANG': {'GRESIK': 3, 'MOJOKERTO': 8, 'JOMBANG': 5}
+# }
+
 city_map = {
-    'SURABAYA': {'SIDOARJO': 5, 'GRESIK': 9, 'MOJOKERTO': 4},
-    'SIDOARJO': {'SURABAYA': 5, 'GRESIK': 3, 'JOMBANG': 7},
+    'JAKARTA': {'BOGOR': 60, 'DEPOK': 25, 'TANGERANG': 35, 'BEKASI': 25, 'BANDUNG': 150},
+    'BOGOR': {'JAKARTA': 60, 'DEPOK': 30, 'BANDUNG': 120},
+    'DEPOK': {'JAKARTA': 25, 'BOGOR': 30},
+    'TANGERANG': {'JAKARTA': 35},
+    'BEKASI': {'JAKARTA': 25},
+    'BANDUNG': {'JAKARTA': 150, 'BOGOR': 120, 'CIREBON': 130, 'SEMARANG': 360},
+    'CIREBON': {'BANDUNG': 130, 'SEMARANG': 210},
+    'SEMARANG': {'CIREBON': 210, 'YOGYAKARTA': 120, 'SOLO': 100},
+    'YOGYAKARTA': {'SEMARANG': 120, 'SOLO': 60, 'MAGELANG': 40},
+    'SOLO': {'SEMARANG': 100, 'YOGYAKARTA': 60, 'PURWOKERTO': 170},
+    'MAGELANG': {'YOGYAKARTA': 40},
+    'PURWOKERTO': {'SOLO': 170, 'TEGAL': 100},
+    'TEGAL': {'PURWOKERTO': 100},
+    'SURABAYA': {'SIDOARJO': 25, 'GRESIK': 9, 'MOJOKERTO': 4, 'BANYUWANGI': 300},
+    'SIDOARJO': {'SURABAYA': 25, 'GRESIK': 3, 'JOMBANG': 7},
     'GRESIK': {'SURABAYA': 9, 'SIDOARJO': 3, 'MOJOKERTO': 2, 'JOMBANG': 6, 'MALANG': 3},
     'MOJOKERTO': {'SURABAYA': 4, 'GRESIK': 2, 'MALANG': 8},
     'JOMBANG': {'SIDOARJO': 7, 'GRESIK': 6, 'MALANG': 5},
-    'MALANG': {'GRESIK': 3, 'MOJOKERTO': 8, 'JOMBANG': 5}
+    'MALANG': {'GRESIK': 3, 'MOJOKERTO': 8, 'JOMBANG': 5},
+    'BANYUWANGI': {'SURABAYA': 300}
 }
+
 
 # BFS implementation
 def bfs(graph, start, goal):
