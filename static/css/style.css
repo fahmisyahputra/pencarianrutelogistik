@@ -21,7 +21,7 @@
 .card {
     height: 90vh;
     border-width: 1pt;
-    background-color:#ffffff;
+    background-color: #ffffff;
 }
 
 iframe {
@@ -46,4 +46,9 @@ iframe {
 }
 .bg-danger {
     background-color: #ff0000 !important;
+}
+
+.result-container {
+    max-height: 500px;
+    overflow-y: auto;
 }
