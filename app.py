@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify
-import networkx as nx
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -43,45 +42,34 @@ city_map = {
     'SITUBONDO': {'JEMBER': 7, 'PROBOLINGGO': 11, 'BANYUWANGI': 10}
 }
 
-
 # BFS implementation
 def bfs(graph, start, goal):
-    queue = [(start, [start])]
+    queue = [(start, [start], 0)]  # Initial path and distance
     while queue:
-        (vertex, path) = queue.pop(0)
+        (vertex, path, distance) = queue.pop(0)
         for next in set(graph[vertex]) - set(path):
             if next == goal:
-                return path + [next]
+                return path + [next], distance + (graph[vertex][next] * 10)  # Multiply distance by 10
             else:
-                queue.append((next, path + [next]))
-    return None
+                queue.append((next, path + [next], distance + (graph[vertex][next] * 10)))  # Multiply distance by 10
+    return None, None
 
 # DFS implementation
-def dfs(graph, start, goal, path=[]):
+def dfs(graph, start, goal, path=[], distance=0):
     path = path + [start]
     if start == goal:
-        return path
+        return path, distance
     for node in graph[start]:
         if node not in path:
-            newpath = dfs(graph, node, goal, path)
+            newpath, newdistance = dfs(graph, node, goal, path, distance + (graph[start][node] * 10))  # Multiply distance by 10
             if newpath:
-                return newpath
-    return None
-
-# Generate city graph for visualization
-def generate_city_graph():
-    G = nx.Graph()
-
-    for city, neighbors in city_map.items():
-        for neighbor, distance in neighbors.items():
-            G.add_edge(city, neighbor, weight=distance)
-
-    return G
+                return newpath, newdistance
+    return None, None
 
 # Route to render the index page
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('main.html')
 
 # Route to handle the form submission and perform selected algorithm search
 @app.route('/search_route', methods=['POST'])
@@ -90,17 +78,32 @@ def search_route():
     goal = request.form.get('goal').upper()
     algorithm = request.form.get('algorithm')
 
-    if start not in city_map or goal not in city_map:
-        return jsonify({'result': 'Kota awal atau Kota tujuan invalid.'})
+    if start not in city_map and goal not in city_map:
+        return jsonify({'result': f'{start} and {goal} cities are invalid.', 'status': 'error'})
+    elif start not in city_map:
+        return jsonify({'result': f'{start} city is invalid.', 'status': 'error'})
+    elif goal not in city_map:
+        return jsonify({'result': f'{goal} city is invalid.', 'status': 'error'})
 
     path = None
+    total_distance = 0
+
     if algorithm == 'BFS':
-        path = bfs(city_map, start, goal)
+        path, total_distance = bfs(city_map, start, goal)
     elif algorithm == 'DFS':
-        path = dfs(city_map, start, goal)
+        path, total_distance = dfs(city_map, start, goal)
 
     if path:
-        result = "Rute ditemukan: " + " -> ".join(path)
+        route_str = ' -> '.join(path)
+        distance_str = ''
+        prev_city = None
+        for city in path:
+            if prev_city:
+                distance = city_map[prev_city][city] * 10
+                distance_str += f"\n{prev_city} -> {city} = {distance} km"
+            prev_city = city
+
+        result = f"Route Found:<br> {route_str}<br><br>Distance between Each City:<br>{distance_str.replace('\n', '<br>')}<br><br>Total Distance: {total_distance} km"
     else:
         result = "Rute tidak ditemukan"
 

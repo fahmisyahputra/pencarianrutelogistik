@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistic Route Finder</title>
+    <link rel="icon" href="../static/img/3061744.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand">
+            <img src="../static/img/3061744.png" width="35" height="35" class="d-inline-block align-middle">
+            Logistic Route Finder
+        </a>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 order-lg-1 order-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">The Routed Map of Java and The Cities</h5>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Lists of Cities</button>
+                        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> <strong>Lists of The Cities</strong></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <strong>West Java</strong>
+                                <ul>
+                                    <li>Bandung</li>
+                                    <li>Bogor</li>
+                                    <li>Cilegon</li>
+                                    <li>Cikampek</li>
+                                    <li>Cirebon</li>
+                                    <li>Jakarta</li>
+                                    <li>Tasikmalaya</li>
+                                </ul>
+                                <strong>Central Java</strong>
+                                <ul>
+                                    <li>Kudus</li>
+                                    <li>Purwokerto</li>
+                                    <li>Rembang</li>
+                                    <li>Semarang</li>
+                                    <li>Surakarta</li>
+                                    <li>Tegal</li>
+                                    <li>Yogyakarta</li>
+                                </ul>
+                                <strong>East Java</strong>
+                                <ul>
+                                    <li>Banyuwangi</li>
+                                    <li>Gresik</li>
+                                    <li>Jember</li>
+                                    <li>Lumajang</li>
+                                    <li>Malang</li>
+                                    <li>Madiun</li>
+                                    <li>Nganjuk</li>
+                                    <li>Pacitan</li>
+                                    <li>Ponorogo</li>
+                                    <li>Probolinggo</li>
+                                    <li>Sidoarjo</li>
+                                    <li>Situbondo</li>
+                                    <li>Surabaya</li>
+                                    <li>Tuban</li>
+                                    <li>Tulungagung</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <iframe src="https://www.google.com/maps/d/embed?mid=1YHuu8E6F2unOfx344NrhqWWsLWk64gg&ehbc=2E312F"></iframe>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-2 order-1">
+                <div class="card align-middle">
+                    <div class="card-body">
+                        <div>
+                            <h3 class="mb-3">QUIZ 2 Design and Analysis Algorithm (B)</h3>
+
+                            <p>Muhammad Ivan Ardianadi Afiat&emsp;&nbsp;/&emsp;5025221178</p>
+                            <p>Nuril Qolbi Zam Zami&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;/&emsp;5025221296</p>
+                            <p>Muhmmad Fahmi Syahputra&emsp;&emsp;&emsp;/&emsp;5025221302</p>
+                        </div>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDescription" aria-controls="offcanvasDescription">About the Program</button>
+                        <div class="offcanvas offcanvas-end custom-width" data-bs-scroll="true" tabindex="-1" id="offcanvasDescription" aria-labelledby="offcanvasDescriptionLabel">                            <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasDescriptionLabel">About the Program</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                            <div class="offcanvas-body">
+                                <h4>1. Program Description</h4>
+                                <p>This web/program is an example of implementation of BFS and DFS algorithms to find closest route between two cities.</p>
+                            
+                                <h4>2. Method</h4>
+                                <h5>a. BFS</h5>
+                                <p>BFS systematically explores the neighbor nodes at the current level first, then proceeds to the next level. It uses a queue data structure to store the visiting order. Imagine exploring a maze; BFS would check all the paths leading out of the current room before moving to the next room.</p>
+                            
+                                <h5>b. DFS</h5>
+                                <p>DFS explores as deeply as possible along a single path before backtracking and exploring another path. It uses a stack data structure to keep track of the exploration path. In the maze analogy, DFS would take a single path until it hits a dead end, then backtrack and try a different path.</p>
+                            
+                                <h4>3. How it works</h4>
+                                <p>First the program will read user input of which city the user wants to calculate the closest route. Then the program will give output based on the user-selected algorithms, BFS or DFS.</p>
+                            
+                                <h5>BFS</h5>
+                                <ol>
+                                    <li>The bfs function takes a graph (represented as a dictionary), starting node, and goal node as inputs.</li>
+                                    <li>It initializes a queue with a tuple containing the starting node and a list representing the current path (including only the starting node).</li>
+                                    <li>While the queue is not empty:
+                                        <ul>
+                                            <li>It dequeues a node (vertex) and its current path from the queue.</li>
+                                            <li>It iterates through the neighbors of the vertex, excluding the nodes already visited in the current path.
+                                                <ul>
+                                                    <li>If a neighbor is the goal node, it returns the complete path to the goal node.</li>
+                                                    <li>Otherwise, it adds the neighbor to the queue along with the updated path (including the neighbor).</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>If the loop finishes without finding the goal, it means no path exists, and the function returns None.</li>
+                                </ol>
+                            
+                                <h5>DFS</h5>
+                                <ol>
+                                    <li>The dfs function takes a graph, starting node, goal node, and an optional path list (defaults to an empty list) as inputs.</li>
+                                    <li>It adds the starting node to the path list.</li>
+                                    <li>If the current node is the goal node, it returns the path to the goal node.</li>
+                                    <li>It iterates through the neighbors of the current node.
+                                        <ul>
+                                            <li>If a neighbor is not already in the path list (to avoid revisiting nodes), it performs a recursive call to dfs with the neighbor as the starting node and the updated path.
+                                                <ul>
+                                                    <li>If the recursive call returns a path (meaning the goal is found from that branch), it returns the path.</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>If none of the neighbors lead to the goal, it returns None, indicating no path exists from the current starting node.</li>
+                                </ol>
+                            
+                                <h4>4. Implementation Example & Difference</h4>
+                                <h5>1. Search Strategy</h5>
+                                <p>BFS:</p>
+                                <ul>
+                                    <li>Level-by-Level Exploration: Explores nodes layer by layer.</li>
+                                    <li>Queue-Based: Uses a queue to manage nodes to explore next.</li>
+                                </ul>
+                                <p>DFS:</p>
+                                <ul>
+                                    <li>Deep Dive Exploration: Explores as far down a branch as possible before backtracking.</li>
+                                    <li>Stack-Based: Uses a stack or recursion for node management.</li>
+                                </ul>
+                            
+                                <h5>2. Path Finding</h5>
+                                <p>BFS:</p>
+                                <ul>
+                                    <li>Shortest Path Guaranteed: Finds the shortest path in unweighted graphs by exploring all nodes at the current level before moving deeper.</li>
+                                </ul>
+                                <p>DFS:</p>
+                                <ul>
+                                    <li>Not Guaranteed Shortest Path: May find a longer path first as it explores one branch deeply before others.</li>
+                                </ul>
+                            
+                                <h5>3. Memory Usage</h5>
+                                <p>BFS:</p>
+                                <ul>
+                                    <li>Higher Memory Usage: Stores all nodes at the current level in the queue, which can grow quickly in wide graphs.</li>
+                                </ul>
+                                <p>DFS:</p>
+                                <ul>
+                                    <li>Lower Memory Usage: Generally needs less memory, storing only a single path and the set of visited nodes.</li>
+                                </ul>
+                            
+                                <h5>4. Use Cases</h5>
+                                <p>BFS:</p>
+                                <ul>
+                                    <li>Optimal for Shortest Path Problems: Ideal for finding the shortest path and level-based exploration (e.g., social networks, web crawling).</li>
+                                </ul>
+                                <p>DFS:</p>
+                                <ul>
+                                    <li>Path Existence and Tree Traversal: Suitable for checking path existence, topological sorting, and exploring deep paths (e.g., mazes, puzzles).</li>
+                                </ul>
+                            
+                                <h5>Practical Examples in the Provided Program</h5>
+                                <p>BFS Example:</p>
+                                <ul>
+                                    <li>When finding the shortest route from JAKARTA to BANDUNG, BFS explores all immediate neighbors of JAKARTA, then all neighbors' neighbors, ensuring the shortest path is found first.</li>
+                                </ul>
+                                <p>DFS Example:</p>
+                                <ul>
+                                    <li>When finding a route from BANDUNG to MADIUN, DFS dives deep into one branch (e.g., BANDUNG -> CIKAMPEK -> CIREBON -> ...), possibly finding a longer path first.</li>
+                                </ul>
+                            
+                                <p>In summary, BFS and DFS offer different strengths: BFS excels at finding the shortest path and level-based exploration, while DFS is more memory-efficient and suited for deep path exploration and problems requiring complete traversal of all nodes or paths. Understanding these differences helps in choosing the appropriate algorithm based on the specific requirements of the problem at hand.</p>
+                            </div>
+                        </div>
+                        <h5 class="card-title mt-3 align-middle">Input Data</h5>
+                        <form id="routeForm" action="/search_route" method="post" class="mb-3">
+                            <div class="mb-3">
+                                <label for="kotaAsal" class="form-label">Strat City (Ex: Surabaya):</label>
+                                <input type="text" class="form-control" id="kotaAsal" name="start" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="kotaTujuan" class="form-label">Goal City (Ex: Malang):</label>
+                                <input type="text" class="form-control" id="kotaTujuan" name="goal" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="algorithm" class="form-label">Algorithm:</label>
+                                <select class="form-control" id="algorithm" name="algorithm" required>
+                                    <option value="BFS">BFS</option>
+                                    <option value="DFS">DFS</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div aria-live="polite" aria-atomic="true" class="toast-container-center">
+        <div class="toast" id="routeToast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+            <div class="toast-header">
+                <img src="../static/img/3061744.png" width="35" height="35" class="rounded me-2" alt="icon">
+                <strong class="me-auto">Route Finder</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="result-container">
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+</body>
+</html>
