@@ -103,7 +103,7 @@ def search_route():
                 distance_str += f"\n{prev_city} -> {city} = {distance} km"
             prev_city = city
 
-        result = f"Route Found:<br> {route_str}<br><br>Distance between Each City:<br>{distance_str.replace('\n', '<br>')}<br><br>Total Distance: {total_distance} km"
+        result = f"Route Found with {algorithm} method:<br><br> {route_str}<br><br>Distance between Each City:<br>{distance_str.replace('\n', '<br>')}<br><br>Total Distance: {total_distance} km"
     else:
         result = "Rute tidak ditemukan"
 
