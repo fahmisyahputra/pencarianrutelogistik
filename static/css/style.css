@@ -1,0 +1,54 @@
+.navbar {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.navbar-brand {
+    font-size: clamp(15pt, 10vw, 18pt);
+}
+
+.nav-link.active {
+    font-weight: 700;
+}
+
+.nav-link {
+    color: #ffffff;
+}
+
+.card {
+    height: 90vh;
+    border-width: 1pt;
+    background-color: #ffffff;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.toast-container-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+}
+
+.toast {
+    background-color: #fff;
+}
+
+.bg-success {
+    background-color: #ffffff !important;
+}
+.bg-danger {
+    background-color: #ff0000 !important;
+}
+
+.result-container {
+    max-height: 500px;
+    overflow-y: auto;
+}
